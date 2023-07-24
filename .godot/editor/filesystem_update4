@@ -1,0 +1,10 @@
+res://Scenes/main.tscn
+res://Assets/defStyleBox.tres
+res://Assets/TruvusTheme.tres
+res://Scenes/player.tscn
+res://Scenes/hiding_label.tscn
+res://Scenes/rotatingPlatform.tscn
+res://Scenes/pauseMenu.tscn
+res://Scenes/speedrunTimer.tscn
+res://Scenes/socialIcons.tscn
+res://Scripts/speedrunTimer.gd

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1a3lscooctt"]
+
+[ext_resource type="Script" path="res://Scripts/social.gd" id="1_kvkrs"]
+[ext_resource type="Texture2D" uid="uid://ddqrk1nkjhri1" path="res://Assets/icons/rama_gt.png" id="2_usj26"]
+[ext_resource type="Texture2D" uid="uid://ym1dbi2u4iit" path="res://Assets/icons/rama_ds.png" id="3_xyptv"]
+[ext_resource type="Texture2D" uid="uid://ci50ose7p1nbf" path="res://Assets/icons/rama_tg.png" id="4_ublvq"]
+[ext_resource type="Texture2D" uid="uid://bj83e58vbq4m8" path="res://Assets/icons/rama_st.png" id="5_sa01k"]
+
+[node name="SocialIcons" type="Node2D"]
+z_index = 8
+script = ExtResource("1_kvkrs")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 403.0
+offset_bottom = 36.0
+
+[node name="githubButton" type="TextureButton" parent="BoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture_normal = ExtResource("2_usj26")
+texture_pressed = ExtResource("2_usj26")
+texture_hover = ExtResource("2_usj26")
+texture_disabled = ExtResource("2_usj26")
+texture_focused = ExtResource("2_usj26")
+
+[node name="discordButton" type="TextureButton" parent="BoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture_normal = ExtResource("3_xyptv")
+texture_pressed = ExtResource("3_xyptv")
+texture_hover = ExtResource("3_xyptv")
+texture_disabled = ExtResource("3_xyptv")
+texture_focused = ExtResource("3_xyptv")
+
+[node name="telegramButton" type="TextureButton" parent="BoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_ublvq")
+texture_pressed = ExtResource("4_ublvq")
+texture_hover = ExtResource("4_ublvq")
+texture_disabled = ExtResource("4_ublvq")
+texture_focused = ExtResource("4_ublvq")
+
+[node name="siteButton" type="TextureButton" parent="BoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture_normal = ExtResource("5_sa01k")
+texture_pressed = ExtResource("5_sa01k")
+texture_hover = ExtResource("5_sa01k")
+texture_disabled = ExtResource("5_sa01k")
+texture_focused = ExtResource("5_sa01k")
+
+[connection signal="pressed" from="BoxContainer/githubButton" to="." method="onGithubButtonPressed"]
+[connection signal="pressed" from="BoxContainer/discordButton" to="." method="onDiscordButtonPressed"]
+[connection signal="pressed" from="BoxContainer/telegramButton" to="." method="onTelegramButtonPressed"]
+[connection signal="pressed" from="BoxContainer/siteButton" to="." method="onSiteButtonPressed"]

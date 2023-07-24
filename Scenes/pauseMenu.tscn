@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn6in7wjexusn"]
+
+[ext_resource type="Theme" uid="uid://bhphu61e5yeys" path="res://Assets/TruvusTheme.tres" id="1_c5mpo"]
+[ext_resource type="Script" path="res://Scripts/pauseMenu.gd" id="1_w4pth"]
+[ext_resource type="Texture2D" uid="uid://cugulakkx35xv" path="res://Assets/WhitePict.png" id="3_l54ct"]
+[ext_resource type="Texture2D" uid="uid://dskhv74x5jmni" path="res://Assets/icons/volume_small.png" id="4_lwqtj"]
+[ext_resource type="Texture2D" uid="uid://dddvp56c2ax4" path="res://Assets/icons/particles.png" id="4_sju04"]
+[ext_resource type="Texture2D" uid="uid://c0xh1lemkry2f" path="res://Assets/icons/reset_small.png" id="5_gt1br"]
+
+[node name="pauseMenu" type="Control" node_paths=PackedStringArray("pauseName")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w4pth")
+pauseName = NodePath("WavooName")
+
+[node name="bgTexture" type="Sprite2D" parent="."]
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 0.843137)
+z_index = 9
+scale = Vector2(150, 80)
+texture = ExtResource("3_l54ct")
+
+[node name="WavooName" type="Label" parent="."]
+visible = false
+z_index = 10
+layout_mode = 0
+offset_right = 702.0
+offset_bottom = 41.0
+theme = ExtResource("1_c5mpo")
+text = "Wavoo
+"
+horizontal_alignment = 1
+
+[node name="Settings" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -189.0
+offset_right = 3.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+vertical = true
+
+[node name="decoCheck" type="CheckButton" parent="Settings"]
+z_index = 10
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Toggle particles"
+theme = ExtResource("1_c5mpo")
+button_pressed = true
+text = "Particles"
+icon = ExtResource("4_sju04")
+
+[node name="musicLabel" type="Label" parent="Settings"]
+z_index = 10
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_c5mpo")
+text = "Music
+"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings/musicLabel"]
+z_index = 9
+position = Vector2(66, 17.3333)
+texture = ExtResource("4_lwqtj")
+
+[node name="musicSlider" type="HSlider" parent="Settings"]
+z_index = 10
+layout_mode = 2
+tooltip_text = "Chnage music volume"
+theme = ExtResource("1_c5mpo")
+min_value = -15.0
+max_value = 10.0
+
+[node name="resetButton" type="Button" parent="Settings"]
+z_index = 9
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Reset checkpoints and time"
+theme = ExtResource("1_c5mpo")
+text = "Reset Game"
+icon = ExtResource("5_gt1br")
+
+[connection signal="toggled" from="Settings/decoCheck" to="." method="onDecoCheckToggled"]
+[connection signal="value_changed" from="Settings/musicSlider" to="." method="onMusicSliderChanged"]
+[connection signal="pressed" from="Settings/resetButton" to="." method="onResetButtonPressed"]

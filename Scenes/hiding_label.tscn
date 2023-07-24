@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bolap1nljcjlc"]
+
+[ext_resource type="Script" path="res://Scripts/hidingLabel.gd" id="1_o8ipg"]
+[ext_resource type="Theme" uid="uid://bhphu61e5yeys" path="res://Assets/TruvusTheme.tres" id="1_pdsq5"]
+[ext_resource type="Texture2D" uid="uid://cugulakkx35xv" path="res://Assets/WhitePict.png" id="3_r13kl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaahi"]
+custom_solver_bias = 0.805
+size = Vector2(41, 40)
+
+[node name="hidingLabel" type="RichTextLabel"]
+z_index = -2
+texture_filter = 1
+offset_right = 497.0
+offset_bottom = 76.0
+theme = ExtResource("1_pdsq5")
+bbcode_enabled = true
+text = "[center]SMTH"
+script = ExtResource("1_o8ipg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(249, 52)
+shape = SubResource("RectangleShape2D_vaahi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_r13kl")
+
+[connection signal="body_entered" from="Area2D" to="." method="onLabelAreaBodyEntered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1x7a47wh57ud"]
+
+[ext_resource type="Theme" uid="uid://bhphu61e5yeys" path="res://Assets/TruvusTheme.tres" id="1_2lpie"]
+[ext_resource type="Script" path="res://Scripts/speedrunTimer.gd" id="1_l558i"]
+
+[node name="timerText" type="RichTextLabel" node_paths=PackedStringArray("msTimer")]
+texture_filter = 1
+offset_right = 461.0
+offset_bottom = 143.0
+theme = ExtResource("1_2lpie")
+bbcode_enabled = true
+text = "[color=white][font_size=60]0:00.[/font_size][font_size=35]00[/font_size]"
+script = ExtResource("1_l558i")
+msTimer = NodePath("MsTimer")
+
+[node name="MsTimer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="MsTimer" to="." method="onMsTimerTimeout" flags=18]
